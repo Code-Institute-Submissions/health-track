@@ -1,3 +1,14 @@
-body {
-    background-color: cornsilk;
+.banner {
+    text-align: center;
+    margin: 5vw;
+    margin-bottom: 5em;
+}
+
+.container-custom{  
+    padding: 35px;
+    margin-bottom: 5em;
+}
+
+.image-center {
+    text-align: center;
 }
