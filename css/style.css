@@ -4,11 +4,22 @@
     margin-bottom: 5em;
 }
 
-.container-custom{  
+.holder {
+    background-color: rgb(232,234,239);
+    margin: 3em;
+}
+
+.col-margins {
+    margin-bottom: 1.5em;
+}
+
+
+.container-custom{
+    background-color: rgb(232,234,239);
     padding: 35px;
     margin-bottom: 5em;
 }
 
-.image-center {
-    text-align: center;
+.search {
+    width: 400px;
 }
