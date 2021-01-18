@@ -11,9 +11,17 @@
   <body>
 
     <!--Navbar-->
-    <div>
-
-    </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="bcc" style="cursor: pointer">BMI & Calorie Calculator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="cc" style="cursor: pointer">Calorie Counter</a>
+      </li>
+    </ul>
 
 
     <!--Banner-->
@@ -24,7 +32,7 @@
     <!--Main Group-->
     <div class="row row-cols-1 row-cols-md-2 g-4 holder" id="mainDisplay">
       <div class="col col-margins">
-        <div class="card" id="cardCalculator">
+        <div class="card" id="cardCalculator" style="cursor: pointer">
           <img src="images/bmi_calculator.png" class="card-img-top" alt="BMI Calculator">
           <div class="card-body">
             <h5 class="card-title">BMI & Calorie Calculator</h5>
@@ -33,7 +41,7 @@
         </div>
       </div>
       <div class="col col-margins">
-        <div class="card" id="cardCounter">
+        <div class="card" id="cardCounter" style="cursor: pointer">
           <img src="images/calorie_calculator.png" class="card-img-top" alt="Calorie Calculator">
           <div class="card-body">
             <h5 class="card-title">Calorie Counter</h5>
@@ -102,8 +110,8 @@
 
     <!--Calculator Result Group-->
     <div class="container container-custom" id="calculatorResultGroup">
-      <h2 id="bmiResult">Your BMI is: </h2>
-      <h4 id="bmiCat">You are: </h4>
+      <h2>Your BMI is: <span id="bmiResult"></span></h2>
+      <h4>You are: <span id="bmiCat"></span></h4>
       <!--<h2 id="bmrResult">Your BMR is: </h2>-->
       <h4>Recommended daily calories: <span id="calRec"></span> kcal</h4>
     </div>

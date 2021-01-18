@@ -5,6 +5,20 @@ $(document).ready(function () {
     $('#counterGroup').hide();
     
     //Main Display JS
+    $('#bcc').click(function(){
+        $('#mainDisplay').hide();
+        $('#calculatorResultGroup').hide();
+        $('#counterGroup').hide();
+        $('#calculatorGroup').show();
+    });
+
+    $('#cc').click(function(){
+        $('#mainDisplay').hide();
+        $('#calculatorResultGroup').hide();
+        $('#calculatorGroup').hide();
+        $('#counterGroup').show();
+    });
+
     $('#cardCalculator').click(function(){
         $('#mainDisplay').hide();
         $('#calculatorGroup').show();
@@ -73,10 +87,10 @@ $(document).ready(function () {
             return calorie;
         }
 
-        $('#bmiResult').append(bmiCalculator());
-        $('#bmiCat').append(bmiRange());
+        $('#bmiResult').html(bmiCalculator());
+        $('#bmiCat').html(bmiRange());
         //$('#bmrResult').append(bmrCalculator());
-        $('#calRec').append(calorieCalculator());
+        $('#calRec').html(calorieCalculator());
         $('#calculatorGroup').hide();
         $('#calculatorResultGroup').show();
     
@@ -127,11 +141,6 @@ $(document).ready(function () {
 
         $('#tableRow').after(`<tr><th>${inputMeal}</th><td>${inputFood}</td><td>${inputServing}</td><td>(cal)</td></tr>`);
 
-    })
+    });
 
-    
-
-    
-
-
-  });
+});
