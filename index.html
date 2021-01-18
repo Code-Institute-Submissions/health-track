@@ -45,7 +45,7 @@
 
     <!--Calculator Group-->
     <div class="container container-custom" id="calculatorGroup">
-      <h2>The BMI & Calorie Counter</h2>
+      <h2>The BMI & Calorie Calculator</h2>
       <form>
         <div class="row mb-3">
           <label for="inputHeight" class="col-sm-2 col-form-label">Height</label>
@@ -69,13 +69,13 @@
           <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input inputGender" type="radio" name="gender" id="male" value="Male" checked>
+              <input class="form-check-input inputGender" type="radio" name="gender" id="male" value="male" checked>
               <label class="form-check-label" for="male">
                 Male
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input inputGender" type="radio" name="gender" id="female" value="Female">
+              <input class="form-check-input inputGender" type="radio" name="gender" id="female" value="female">
               <label class="form-check-label" for="female">
                 Female
               </label>
@@ -87,9 +87,9 @@
           <div class="col-sm-10">
             <select class="form-select" id="inputLifestyle" aria-label="Default select example">
               <option selected></option>
-              <option value="Sedentary">Sedentary</option>
-              <option value="Moderately Active">Moderately Active</option>
-              <option value="Active">Active</option>
+              <option value="sedentary">Sedentary</option>
+              <option value="moderately-active">Moderately Active</option>
+              <option value="active">Active</option>
             </select>
           </div>
         </div>
@@ -103,8 +103,9 @@
     <!--Calculator Result Group-->
     <div class="container container-custom" id="calculatorResultGroup">
       <h2 id="bmiResult">Your BMI is: </h2>
-      <h4 id="bmiCat">You are: <span></span></h4>
-      <h4>Recommended daily calories: <span></span>kcal</h4>
+      <h4 id="bmiCat">You are: </h4>
+      <!--<h2 id="bmrResult">Your BMR is: </h2>-->
+      <h4>Recommended daily calories: <span id="calRec"></span> kcal</h4>
     </div>
 
 

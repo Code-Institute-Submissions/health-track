@@ -31,7 +31,7 @@ $(document).ready(function () {
         }
 
         function bmiRange() {
-            if (bmi < 18.5) {
+            if (bmi >=0 && bmi < 18.5) {
                 cat = "Underweight";
             }
             else if (bmi >= 18.5 && bmi < 25.0) {
@@ -49,18 +49,38 @@ $(document).ready(function () {
             return cat;
         }
 
+        function bmrCalculator() {
+            if (userGender == "male") {
+                bmr = 66.47 + 13.75*userWeight + 5.003*userHeight - 6.755*userAge;
+            }
+            else if (userGender == "female") {
+                bmr = 655.1 + 9.563*userWeight + 1.85*userHeight - 4.676*userAge;
+            }
+            return bmr;
+        }
+
+        function calorieCalculator() {
+            bmr = bmrCalculator();
+            if (userLifestyle == "sedentary") {
+                calorie = bmr * 1.2;
+            }
+            else if (userLifestyle == "moderately-active") {
+                calorie = bmr * 1.55;
+            }
+            else if (userLifestyle == "active") {
+                calorie = bmr * 1.9
+            }
+            return calorie;
+        }
+
         $('#bmiResult').append(bmiCalculator());
         $('#bmiCat').append(bmiRange());
+        //$('#bmrResult').append(bmrCalculator());
+        $('#calRec').append(calorieCalculator());
         $('#calculatorGroup').hide();
         $('#calculatorResultGroup').show();
     
     });
-
-    //Calculator Result Group
-
-
-
-
 
     //Counter Group JS
     /*const settings = {
@@ -83,7 +103,7 @@ $(document).ready(function () {
         inputServing = $('#inputServing').val();
         inputMeal = $('.mealInput:checked').val();
 
-        $('#test2').append(inputFood);
+        //$('#test2').append(inputFood);
 
         
 
