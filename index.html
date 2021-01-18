@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="inputServing" class="col-sm-2 col-form-label">Serving Size</label>
+          <label for="inputServing" class="col-sm-2 col-form-label">Serving Size (g)</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="inputServing">
           </div>
@@ -69,32 +69,32 @@
           <legend class="col-form-label col-sm-2 pt-0">Meal</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-              <label class="form-check-label" for="gridRadios1">
+              <input class="form-check-input" type="radio" name="mealType" id="breakfast" value="Breakfast" checked>
+              <label class="form-check-label" for="breakfast">
                 Breakfast
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-              <label class="form-check-label" for="gridRadios2">
+              <input class="form-check-input" type="radio" name="mealType" id="lunch" value="Lunch">
+              <label class="form-check-label" for="lunch">
                 Lunch
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-              <label class="form-check-label" for="gridRadios2">
+              <input class="form-check-input" type="radio" name="mealType" id="dinner" value="Dinner">
+              <label class="form-check-label" for="dinner">
                 Dinner
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-              <label class="form-check-label" for="gridRadios2">
+              <input class="form-check-input" type="radio" name="mealType" id="snack" value="Snack">
+              <label class="form-check-label" for="snack">
                 Snack
               </label>
             </div>
           </div>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" id="btnAdd">Add</button>
       </form>
 
       <table class="table">
@@ -107,15 +107,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+          <tr id="tableRow">
+            <!--<th scope="row" id="tableMeal">Snack</th>
+            <td id="tableFood">Cheese</td>
+            <td id="tableServing">100</td>
+            <td id="tableCalories">285</td>-->
           </tr>
+          
           
         </tbody>
       </table>
+
+      <div id="test">
+
+      </div>
 
 
     </div>
