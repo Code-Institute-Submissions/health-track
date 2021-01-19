@@ -1,8 +1,16 @@
 $(document).ready(function () {
 
-    $('#calculatorGroup').hide();
-    $('#calculatorResultGroup').hide();
-    $('#counterGroup').hide();
+    //$('#calculatorGroup').hide();
+    //$('#calculatorResultGroup').hide();
+    //$('#counterGroup').hide();
+
+    console.log('hello');
+    sentence = "I am Farhan";
+    word = sentence.split(" ");
+    console.log(word.length);
+    console.log(word[0]);
+    console.log(word[1]);
+    console.log(word[2]);
     
     //Main Display JS
     $('#bcc').click(function(){
@@ -96,17 +104,25 @@ $(document).ready(function () {
     
     });
 
+
     //Counter Group JS
-    /*const settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=",
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "6803216c5dmsh0c91485a08c444ap1b9884jsn19a6a7c34928",
-            "x-rapidapi-host": "calorieninjas.p.rapidapi.com"
-        }
-    };*/
+
+    
+
+    url = "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + inputFood;
+
+    fetch(url, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "6803216c5dmsh0c91485a08c444ap1b9884jsn19a6a7c34928",
+		"x-rapidapi-host": "calorieninjas.p.rapidapi.com"
+	    }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => {
+	    console.error(err);
+    });
 
 
 
@@ -117,30 +133,31 @@ $(document).ready(function () {
         inputServing = $('#inputServing').val();
         inputMeal = $('.mealInput:checked').val();
 
-        //$('#test2').append(inputFood);
+        url = "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + inputFood;
 
-        
-
-        //obj = JSON.parse(settings);
-
-        //$('#test').append(obj);
-
-
-
-        //obj.url = "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + inputFood;
-
-        //$('#test').append(obj.url);
-
-        //myJSON = JSON.stringify(obj);
-        
-        /*$.ajax(settings).done(function (response) {
-            console.log(response);
-        });*/
-
-
-
-        $('#tableRow').after(`<tr><th>${inputMeal}</th><td>${inputFood}</td><td>${inputServing}</td><td>(cal)</td></tr>`);
+        fetch(url, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "6803216c5dmsh0c91485a08c444ap1b9884jsn19a6a7c34928",
+                "x-rapidapi-host": "calorieninjas.p.rapidapi.com"
+            }
+            })
+            .then(function(res) {
+                return res.json();
+            })
+            .then(function(data) {
+                inputCal = data.items[0].calories;
+                cal = inputCal/100 * inputServing;
+                console.log(cal);
+                $('#test2').append(cal);
+                $('#tableRow').after(`<tr><th>${inputMeal}</th><td>${inputFood}</td><td>${inputServing}</td><td>${cal}</td></tr>`);
+            })
+            .catch(err => {
+                console.error(err);
+            });
 
     });
+
+    console.log('All OK');
 
 });
