@@ -4,6 +4,8 @@ $(document).ready(function () {
   console.log("hello");
 
   //Calculator Group JS
+  $("#calculatorResultGroup").hide();
+
   $("#btnCalculate").click(function (e) {
     e.preventDefault();
 
@@ -14,8 +16,8 @@ $(document).ready(function () {
     userLifestyle = $("#inputLifestyle option:selected").val();
     bmi = userWeight / (userHeight / 100) ** 2;
 
-    function bmiCalculator() {
-      return bmi;
+    if (userHeight<1 || userWeight<1 || userAge<1 || userLifestyle.length<1) {
+        alert("One or more of the input fields are empty or undefined. Please ensure all fields are filled.");
     }
 
     function bmiRange() {
@@ -27,9 +29,7 @@ $(document).ready(function () {
         cat = "Overweight";
       } else if (bmi > 30.0) {
         cat = "Obese";
-      } else {
-        cat = "Error";
-      }
+      } 
       return cat;
     }
 
@@ -54,11 +54,9 @@ $(document).ready(function () {
       return calorie;
     }
 
-    $("#bmiResult").html(bmiCalculator());
+    $("#bmiResult").html(bmi.toFixed(1));
     $("#bmiCat").html(bmiRange());
-    //$('#bmrResult').append(bmrCalculator());
-    $("#calRec").html(calorieCalculator());
-    $("#calculatorGroup").hide();
+    $("#calRec").html(calorieCalculator().toFixed(1));
     $("#calculatorResultGroup").show();
   });
 

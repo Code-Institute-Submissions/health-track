@@ -11,6 +11,8 @@
 .holder {
     background-color: rgb(232,234,239);
     margin: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
     width: 100vw;
 }
 
@@ -19,15 +21,21 @@
     margin-bottom: 1.5em;
 }
 
-
 .container-custom{
     background-color: rgb(232,234,239);
     padding: 35px;
-    margin-bottom: 5em;
 }
 
 .centre {
     text-align: center;
+}
+
+.card-link a:hover {
+    text-decoration: none;
+}
+
+.filler {
+    height: 100px;
 }
 
 .search {
