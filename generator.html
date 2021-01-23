@@ -34,11 +34,51 @@
             <a class="nav-link" href="counter.html">Calorie Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="generator.html">Recipe Generator</a>
+            <a class="nav-link" href="generator.html">Meal Generator</a>
           </li>
         </ul>
       </div>
     </nav>
+
+    <!--Generator Group-->
+    <div class="container holder">
+      <div class="row">
+        <!--Generator Image-->
+        <div class="col-md-6 col-margins">
+          <div class="card centre">
+            <img
+              src="images/meal_generator.png"
+              class="card-img-top"
+              alt="Meal Generator"
+            />
+            <div class="card-body">
+              <h2 class="card-title">Meal Generator</h2>
+            </div>
+          </div>
+        </div>
+        <!--Counter-->
+        <div class="col-md-6 col-margins">
+          <h2>Find 3 random meals and their recipes!</h2>
+          <div class="filler-small"></div>
+          <form>
+            <div class="row mb-3">
+              <label for="inputTarget" class="col-sm-4 col-form-label"
+                >Target Calories</label
+              >
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputTarget" />
+              </div>
+            </div>
+            <div class="filler-small"></div>
+            <button class="btn btn-primary" id="btnGenerate">Generate</button>
+          </form>
+          <table class="table table-borderless">
+            <tbody id="myMeals">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>

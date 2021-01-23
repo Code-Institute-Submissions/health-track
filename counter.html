@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Health-Track</title>
   </head>
@@ -22,129 +27,132 @@
           margin-right="30"
         />
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="calculator.html">BMI & Calorie Calculator</a>
+            <a class="nav-link" href="calculator.html"
+              >BMI & Calorie Calculator</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="counter.html">Calorie Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="generator.html">Recipe Generator</a>
+            <a class="nav-link" href="generator.html">Meal Generator</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <!--Main Group-->
-    <div class="row row-cols-1 row-cols-md-2 g-4 holder" id="mainDisplay">
-      <div class="col col-margins">
-        <div class="card" id="cardCalculator" style="cursor: pointer">
-          <img
-            src="images/bmi_calculator.png"
-            class="card-img-top"
-            alt="BMI Calculator"
-          />
-          <div class="card-body">
-            <h5 class="card-title">BMI & Calorie Calculator</h5>
-            <p class="card-text">
-              Find out your BMI and daily recommended calorie intake.
-            </p>
+    <!--Counter Group-->
+    <div class="container holder">
+      <div class="row">
+        <!--Counter Image-->
+        <div class="col-md-6 col-margins">
+          <div class="card centre">
+            <img
+              src="images/calorie_counter.png"
+              class="card-img-top"
+              alt="Calorie Counter"
+            />
+            <div class="card-body">
+              <h2 class="card-title">Calorie Counter</h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col col-margins">
-        <div class="card" id="cardCounter" style="cursor: pointer">
-          <img
-            src="images/calorie_calculator.png"
-            class="card-img-top"
-            alt="Calorie Calculator"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Calorie Counter</h5>
-            <p class="card-text">
-              Count the number of calories you have consumed for the day.
-            </p>
-          </div>
+        <!--Counter-->
+        <div class="col-md-6 col-margins">
+          <h2>What did you consume today?</h2>
+          <div class="filler-small"></div>
+          <form>
+            <div class="row mb-3">
+              <label for="inputFood" class="col-sm-4 col-form-label"
+                >Food/Drink</label
+              >
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputFood" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputServing" class="col-sm-4 col-form-label"
+                >Serving Size (g)</label
+              >
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputServing" />
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-4 pt-0">Meal</legend>
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input mealInput"
+                      type="radio"
+                      name="mealType"
+                      id="breakfast"
+                      value="Breakfast"
+                      checked
+                    />
+                    <label class="form-check-label" for="breakfast">
+                      Breakfast
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input mealInput"
+                      type="radio"
+                      name="mealType"
+                      id="lunch"
+                      value="Lunch"
+                    />
+                    <label class="form-check-label" for="lunch"> Lunch </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input mealInput"
+                      type="radio"
+                      name="mealType"
+                      id="dinner"
+                      value="Dinner"
+                    />
+                    <label class="form-check-label" for="dinner">
+                      Dinner
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input mealInput"
+                      type="radio"
+                      name="mealType"
+                      id="snack"
+                      value="Snack"
+                    />
+                    <label class="form-check-label" for="snack"> Snack </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="filler"></div>
+            <button class="btn btn-primary" id="btnAdd">Add</button>
+          </form>
         </div>
       </div>
     </div>
 
-    <!--Counter Group-->
+    <!--Counter Table-->
     <div class="container container-custom" id="counterGroup">
-      <h2>What did you consume today?</h2>
-      <form>
-        <div class="row mb-3">
-          <label for="inputFood" class="col-sm-2 col-form-label"
-            >Food/Drink</label
-          >
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputFood" />
-          </div>
-        </div>
-        <div class="row mb-3">
-          <label for="inputServing" class="col-sm-2 col-form-label"
-            >Serving Size (g)</label
-          >
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputServing" />
-          </div>
-        </div>
-        <fieldset class="row mb-3">
-          <legend class="col-form-label col-sm-2 pt-0">Meal</legend>
-          <div class="col-sm-10">
-            <div class="form-check">
-              <input
-                class="form-check-input mealInput"
-                type="radio"
-                name="mealType"
-                id="breakfast"
-                value="Breakfast"
-                checked
-              />
-              <label class="form-check-label" for="breakfast">
-                Breakfast
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input mealInput"
-                type="radio"
-                name="mealType"
-                id="lunch"
-                value="Lunch"
-              />
-              <label class="form-check-label" for="lunch"> Lunch </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input mealInput"
-                type="radio"
-                name="mealType"
-                id="dinner"
-                value="Dinner"
-              />
-              <label class="form-check-label" for="dinner"> Dinner </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input mealInput"
-                type="radio"
-                name="mealType"
-                id="snack"
-                value="Snack"
-              />
-              <label class="form-check-label" for="snack"> Snack </label>
-            </div>
-          </div>
-        </fieldset>
-        <button class="btn btn-primary" id="btnAdd">Add</button>
-      </form>
-
       <table class="table" id="calTable">
         <thead>
           <tr>
@@ -155,27 +163,39 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr id="tableRow">
-          </tr>
+        <tbody id="tableBody">
         </tbody>
       </table>
 
-      <div id="sumCal">
-        <h3>Total calories consumed:</h3>
+      <div>
+        <h3>Total calories consumed: <span id="sumCal"></span></h3>
       </div>
     </div>
 
     <!-- Footer -->
     <footer>
       <div class="footer">
-        <p class="footer-text">&#169; 2021, Health Track. All rights reserved.</p>
+        <p class="footer-text">
+          &#169; 2021, Health Track. All rights reserved.
+        </p>
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
   </body>

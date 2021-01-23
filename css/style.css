@@ -38,6 +38,10 @@
     height: 100px;
 }
 
+.filler-small {
+    height: 50px;
+}
+
 .search {
     width: 400px;
 }

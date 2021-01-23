@@ -62,7 +62,7 @@ $(document).ready(function () {
 
   //Counter Group JS
   totalCal = 0;
-  newID = 0;
+  var calList = [];
 
   $("#btnAdd").click(function (e) {
     e.preventDefault();
@@ -72,10 +72,10 @@ $(document).ready(function () {
     inputMeal = $(".mealInput:checked").val();
     
 
-    url =
+    urlCounter =
       "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + inputFood;
 
-    fetch(url, {
+    fetch(urlCounter, {
       method: "GET",
       headers: {
         "x-rapidapi-key": "6803216c5dmsh0c91485a08c444ap1b9884jsn19a6a7c34928",
@@ -89,35 +89,92 @@ $(document).ready(function () {
         inputCal = data.items[0].calories;
         cal = (inputCal / 100) * inputServing;
         totalCal = totalCal + cal;
-        newID += 1
+        calList.push(cal);
 
         console.log("Base calories: " + inputCal);
         console.log("Calculated calories: " + cal);
         console.log("Accumulated calories: " + totalCal);
 
-        $("#tableRow").before(
-          `<tr class="newRow" id="${newID}">
+        $("#tableBody").append(
+          `<tr>
             <th>${inputMeal}</th>
             <td>${inputFood}</td>
             <td>${inputServing}</td>
             <td>${cal}</td>
-            <td><button type="button" class="btn btn-outline-primary">Remove</button></td>
+            <td class="removeRow"><button type="button" class="btn btn-outline-primary">Remove</button></td>
            </tr>`
         );
         
         $("#sumCal").html(totalCal);
+
+        $(".removeRow").click(function() {
+            $(this).parent().remove();
+            console.log(cal)
+            $("#sumCal").html(totalCal);
+        })
         
         })
       .catch(function (error) {
         console.error(error);
       })
 
-    $(".newRow").click(function() {
-        $(this).remove();
-    })
-   
+    
     
   });
+
+  //Generator Group JS
+
+  $("#btnGenerate").click(function(e) {
+    e.preventDefault();
+
+    inputTarget = $("#inputTarget").val();
+
+    urlGenerator = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?targetCalories=" + inputTarget + "&timeFrame=day";
+
+    fetch(urlGenerator, {
+	    "method": "GET",
+	    "headers": {
+		    "x-rapidapi-key": "6803216c5dmsh0c91485a08c444ap1b9884jsn19a6a7c34928",
+		    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+	    }
+        })
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data){
+            breakfast = data.meals[0].title;
+            breakfastURL = data.meals[0].sourceUrl;
+            lunch = data.meals[1].title;
+            lunchURL = data.meals[1].sourceUrl;
+            dinner = data.meals[2].title;
+            dinnerURL = data.meals[2].sourceUrl;
+
+            $("#myMeals").html(
+                `<tr>
+                    <th scope="row">Breakfast</th>
+                    <td>${breakfast}</td>
+                    <td><a href="${breakfastURL}" target="_blank">${breakfastURL}</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Lunch</th>
+                    <td>${lunch}</td>
+                    <td><a href="${lunchURL}" target="_blank">${lunchURL}</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Dinner</th>
+                    <td>${dinner}</td>
+                    <td><a href="${dinnerURL}" target="_blank">${dinnerURL}</a></td>
+                </tr>`
+            )
+
+        })
+        .catch(err => {
+	        console.error(err);
+        });
+
+    })
+
+  
 
   //End test
   console.log("All OK");
