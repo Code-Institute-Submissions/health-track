@@ -1,3 +1,7 @@
+.navbar-custom {
+    background-color: rgb(147,164,180);
+}
+
 .banner {
     text-align: center;
     margin: 5vw;
@@ -6,10 +10,12 @@
 
 .holder {
     background-color: rgb(232,234,239);
-    margin: 3em;
+    margin: auto;
+    width: 100vw;
 }
 
 .col-margins {
+    margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
 
@@ -20,10 +26,28 @@
     margin-bottom: 5em;
 }
 
+.centre {
+    text-align: center;
+}
+
 .search {
     width: 400px;
 }
 
 #test {
     height: 100px;
+}
+
+.footer {
+    margin-top: 100px;
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(147,164,180);
+    padding-top: 10px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.footer-text {
+    margin-top: 5px;
 }

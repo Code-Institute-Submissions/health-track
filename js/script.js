@@ -1,35 +1,7 @@
 $(document).ready(function () {
-  //$('#calculatorGroup').hide();
-  //$('#calculatorResultGroup').hide();
-  //$('#counterGroup').hide();
 
   //Start test
   console.log("hello");
-
-  //Main Display JS
-  $("#bcc").click(function () {
-    $("#mainDisplay").hide();
-    $("#calculatorResultGroup").hide();
-    $("#counterGroup").hide();
-    $("#calculatorGroup").show();
-  });
-
-  $("#cc").click(function () {
-    $("#mainDisplay").hide();
-    $("#calculatorResultGroup").hide();
-    $("#calculatorGroup").hide();
-    $("#counterGroup").show();
-  });
-
-  $("#cardCalculator").click(function () {
-    $("#mainDisplay").hide();
-    $("#calculatorGroup").show();
-  });
-
-  $("#cardCounter").click(function () {
-    $("#mainDisplay").hide();
-    $("#counterGroup").show();
-  });
 
   //Calculator Group JS
   $("#btnCalculate").click(function (e) {
@@ -91,8 +63,8 @@ $(document).ready(function () {
   });
 
   //Counter Group JS
-
   totalCal = 0;
+  newID = 0;
 
   $("#btnAdd").click(function (e) {
     e.preventDefault();
@@ -119,12 +91,22 @@ $(document).ready(function () {
         inputCal = data.items[0].calories;
         cal = (inputCal / 100) * inputServing;
         totalCal = totalCal + cal;
-        console.log(cal);
-        console.log(data.items[0].calories);
-        $("#tableRow").after(
-          `<tr><th>${inputMeal}</th><td>${inputFood}</td><td>${inputServing}</td><td>${cal}</td></tr>`
+        newID += 1
+
+        console.log("Base calories: " + inputCal);
+        console.log("Calculated calories: " + cal);
+        console.log("Accumulated calories: " + totalCal);
+
+        $("#tableRow").before(
+          `<tr class="newRow" id="${newID}">
+            <th>${inputMeal}</th>
+            <td>${inputFood}</td>
+            <td>${inputServing}</td>
+            <td>${cal}</td>
+            <td><button type="button" class="btn btn-outline-primary">Remove</button></td>
+           </tr>`
         );
-        console.log(totalCal);
+        
         $("#sumCal").html(totalCal);
         
         })
@@ -132,7 +114,10 @@ $(document).ready(function () {
         console.error(error);
       })
 
-    
+    $(".newRow").click(function() {
+        $(this).remove();
+    })
+   
     
   });
 
