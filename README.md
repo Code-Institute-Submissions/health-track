@@ -84,7 +84,7 @@ The website was deployed through Github pages.
   * Spoonacular (Meal & recipe generator)
   * Calorie Ninjas (Calorie information)
 * [Stackoverflow](https://stackoverflow.com/) for coding tips
-* [diabetes.co.uk] (https://www.diabetes.co.uk/bmr-calculator.html) for the recommended calorie intake formula
+* [diabetes.co.uk](https://www.diabetes.co.uk/bmr-calculator.html) for the recommended calorie intake formula
 * [Canva](https://www.canva.com/) for images used in the website.
 * [Bootstrap](https://getbootstrap.com/) for HTML and CSS templates.
-* [w3schools][https://www.w3schools.com/] for basic HTML/CSS/Javascript/Jquery syntax references.
+* [w3schools](https://www.w3schools.com/) for basic HTML/CSS/Javascript/Jquery syntax references.

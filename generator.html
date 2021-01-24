@@ -56,10 +56,10 @@
             </div>
           </div>
         </div>
-        <!--Counter-->
+        <!--Generator-->
         <div class="col-md-6 col-margins">
-          <h2>Find 3 random meals and their recipes!</h2>
-          <div class="filler-small"></div>
+          <h2>Find 3 random dishes whose calories add up to your daily recommended calorie intake!</h2>
+          <div class="filler"></div>
           <form>
             <div class="row mb-3">
               <label for="inputTarget" class="col-sm-4 col-form-label"
@@ -69,15 +69,20 @@
                 <input type="text" class="form-control" id="inputTarget" />
               </div>
             </div>
-            <div class="filler-small"></div>
+            <div class="filler"></div>
             <button class="btn btn-primary" id="btnGenerate">Generate</button>
           </form>
-          <table class="table table-borderless">
-            <tbody id="myMeals">
-            </tbody>
-          </table>
+          
         </div>
       </div>
+    </div>
+
+    <!--Generator Table-->
+    <div class="container container-custom" id="generatorTable">
+      <table class="table table-borderless">
+        <tbody id="myMeals">
+        </tbody>
+      </table>
     </div>
 
     <!-- Footer -->
