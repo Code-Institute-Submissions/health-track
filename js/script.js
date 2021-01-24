@@ -2,6 +2,8 @@ $(document).ready(function () {
 
   //Start test
   console.log("hello");
+  var letters = /[^a-zA-Z ]/g;
+  var numbers = /[^0-9 ]/g;
 
   //Calculator Group JS
   $("#calculatorResultGroup").hide();
@@ -63,14 +65,18 @@ $(document).ready(function () {
   //Counter Group JS
   totalCal = 0;
   var calList = [];
-
+  
   $("#btnAdd").click(function (e) {
     e.preventDefault();
 
     inputFood = $("#inputFood").val();
     inputServing = $("#inputServing").val();
     inputMeal = $(".mealInput:checked").val();
-    
+   
+
+    if (inputFood == "" || inputFood.match(letters)) {
+      alert("One or more of the input fields are empty or undefined. Please ensure all fields are filled.");
+    }
 
     urlCounter =
       "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + inputFood;
@@ -95,15 +101,19 @@ $(document).ready(function () {
         console.log("Calculated calories: " + cal);
         console.log("Accumulated calories: " + totalCal);
 
-        $("#tableBody").append(
-          `<tr>
-            <th>${inputMeal}</th>
-            <td>${inputFood}</td>
-            <td>${inputServing}</td>
-            <td>${cal}</td>
-            <td class="removeRow"><button type="button" class="btn btn-outline-primary">Remove</button></td>
-           </tr>`
-        );
+        if (inputServing == "" || inputServing.match(numbers)) {
+          alert("One or more of the input fields are empty or undefined. Please ensure all fields are filled.");
+        } else {
+          $("#tableBody").append(
+            `<tr>
+              <th>${inputMeal}</th>
+              <td>${inputFood}</td>
+              <td>${inputServing}</td>
+              <td>${cal}</td>
+              <td class="removeRow"><button type="button" class="btn btn-outline-primary">Remove</button></td>
+             </tr>`
+          );
+        }
         
         $("#sumCal").html(totalCal);
 
@@ -116,6 +126,7 @@ $(document).ready(function () {
         })
       .catch(function (error) {
         console.error(error);
+        alert("Unable to find item in directory");
       })
 
     
@@ -128,6 +139,10 @@ $(document).ready(function () {
     e.preventDefault();
 
     inputTarget = $("#inputTarget").val();
+
+    if (inputTarget == "" || inputTarget.match(numbers)) {
+      alert("One or more of the input fields are empty or undefined. Please ensure all fields are filled.");
+    }
 
     urlGenerator = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?targetCalories=" + inputTarget + "&timeFrame=day";
 
