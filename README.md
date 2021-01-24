@@ -67,7 +67,15 @@ In this respect, the website was built in response to these questions. Hence, th
 * To accommodate to users of mobile phones who prefer to visit websites on-the-go.
 
 # 6. Testing
-All HTML and CSS files were passed through W3C Nu HTML and Jigsaw CSS validators respectively. Files were uploaded to the validators and all errors were fixed.
+All HTML, CSS and Javascript files were passed through W3C Nu HTML, Jigsaw CSS and JSHint validators respectively. Files were uploaded to the validators and all errors were fixed. APIs were also tested on postman before being deployed.
+
+![](images/html_check1.png)
+![](images/html_check2.png)
+![](images/css_check.png)
+![](images/js_check.png)
+![](images/postman_check.png)
+
+
 
 # 7. Deployment
 The website was deployed through Github pages.

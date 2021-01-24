@@ -63,6 +63,8 @@ $(document).ready(function () {
   });
 
   //Counter Group JS
+  $("#counterTable").hide();
+
   totalCal = 0;
   var calList = [];
   count = 0;
@@ -70,6 +72,8 @@ $(document).ready(function () {
   
   $("#btnAdd").click(function (e) {
     e.preventDefault();
+
+    $("#counterTable").show();
 
     inputFood = $("#inputFood").val();
     inputServing = $("#inputServing").val();
@@ -124,7 +128,8 @@ $(document).ready(function () {
 
         $(".removeRow").click(function() {
             $(this).parent().remove();
-        })
+            $("#totalCalories").hide();
+        });
 
         
         
@@ -132,7 +137,7 @@ $(document).ready(function () {
       .catch(function (error) {
         console.error(error);
         alert("Unable to find item in directory");
-      })
+      });
 
     
     
@@ -196,7 +201,7 @@ $(document).ready(function () {
                     <td>${dinner}</td>
                     <td><a href="${dinnerURL}" target="_blank">${dinnerURL}</a></td>
                 </tr>`
-            )
+            );
 
         })
         .catch(err => {
@@ -205,7 +210,7 @@ $(document).ready(function () {
 
         $("#generatorTable").show();
 
-    })
+    });
 
   
 
