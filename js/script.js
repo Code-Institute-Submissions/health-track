@@ -65,6 +65,8 @@ $(document).ready(function () {
   //Counter Group JS
   totalCal = 0;
   var calList = [];
+  count = 0;
+  sumCal = 0;
   
   $("#btnAdd").click(function (e) {
     e.preventDefault();
@@ -110,17 +112,27 @@ $(document).ready(function () {
               <td>${inputFood}</td>
               <td>${inputServing}</td>
               <td>${cal}</td>
-              <td class="removeRow"><button type="button" class="btn btn-outline-primary">Remove</button></td>
+              <td class="removeRow" id="${count}"><button type="button" class="btn btn-outline-primary">Remove</button></td>
              </tr>`
           );
         }
-        
+        console.log(count);
+        count += 1;
+        console.log(calList);
+        console.log(count);
         $("#sumCal").html(totalCal);
 
         $(".removeRow").click(function() {
-            $(this).parent().remove();
-            console.log(cal)
-            $("#sumCal").html(totalCal);
+            
+            console.log($(this).attr("id"));
+            //index = parseInt($(this).attr("id"));
+            //for (var i=0; i<calList.length; i++) {
+              //sumCal += calList[i];
+              //console.log(sumCal);
+            //}
+            //$(this).parent().remove();
+            //updatedSum = sumCal - calList[index];
+            //$("#sumCal").html(updatedSum);
         })
         
         })
